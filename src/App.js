@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './Components/layout/Header';
+
 
 function App() {
+
+  const initJobs = [
+    {
+      "id": 1,
+      "työtehtävä": "Kuvaaja"
+    },              
+    {
+      "id":2,
+      "työtehtävä": "Myyjä"
+    },
+    {
+      "id": 3,
+      "työtehtävä": "Malli"
+    },
+  ]
+    const [jobs, setjobs] = useState(initJobs);
+
+const rows = () => jobs.map(job => {
+return <p> {job.työtehtävä}</p> 
+})
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {rows()}
     </div>
   );
 }
