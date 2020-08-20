@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from './Components/layout/Header';
+import Search from './Components/layout/Search';
 
 
 function App() {
@@ -19,14 +20,20 @@ function App() {
       "työtehtävä": "Malli"
     },
   ]
-    const [jobs, setjobs] = useState(initJobs);
+    const [jobs, setJobs] = useState(initJobs);
+
+    fetch('https://gis.vantaa.fi/rest/tyopaikat/v1/kaikki')
+    .then(response => response.json())
+    .then(json=>setJobs([...json]));
+
 
 const rows = () => jobs.map(job => {
-return <p> {job.työtehtävä}</p> 
+return <p><input type="checkbox"></input>{job.tyotehtava}, {job.osioite}, <a href={job.linkki}>LISÄTIETOA</a></p> 
 })
   return (
     <div className="App">
       <Header />
+      <Search /> 
       {rows()}
     </div>
   );
