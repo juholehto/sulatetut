@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './Components/layout/Header';
 import Search from './Components/layout/Search';
-
+import Jobs from './Components/layout/Jobs';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Weather from './Components/Weather';
 
 function App() {
 
@@ -10,9 +12,9 @@ function App() {
     {
       "id": 1,
       "työtehtävä": "Kuvaaja"
-    },              
+    },
     {
-      "id":2,
+      "id": 2,
       "työtehtävä": "Myyjä"
     },
     {
@@ -20,22 +22,30 @@ function App() {
       "työtehtävä": "Malli"
     },
   ]
-    const [jobs, setJobs] = useState(initJobs);
+  const [jobs, setJobs] = useState(initJobs);
 
+  useEffect(() => {
     fetch('https://gis.vantaa.fi/rest/tyopaikat/v1/kaikki')
-    .then(response => response.json())
-    .then(json=>setJobs([...json]));
+      .then(response => response.json())
+      .then(json => setJobs([...json]));
+  }, []);
 
-
-const rows = () => jobs.map(job => {
-return <p><input type="checkbox"></input>{job.tyotehtava}, {job.osioite}, <a href={job.linkki}>LISÄTIETOA</a></p> 
-})
   return (
-    <div className="App">
-      <Header />
-      <Search /> 
-      {rows()}
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/weather">
+            <Weather />
+          </Route>
+          <Route path="/">
+            <Search />
+            <Jobs jobs={jobs} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+
   );
 }
 
