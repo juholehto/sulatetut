@@ -1,34 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Header from './Components/layout/Header';
-import Search from './Components/layout/Search';
-import Jobs from './Components/layout/Jobs';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import Weather from './Components/Weather';
+import Header from './components/layout/Header';
+import Search from './components/layout/Search';
+import Jobs from './components/Jobs';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Weather from './components/Weather'
 
 function App() {
 
-  const initJobs = [
-    {
-      "id": 1,
-      "työtehtävä": "Kuvaaja"
-    },
-    {
-      "id": 2,
-      "työtehtävä": "Myyjä"
-    },
-    {
-      "id": 3,
-      "työtehtävä": "Malli"
-    },
-  ]
+  const initJobs = []
   const [jobs, setJobs] = useState(initJobs);
 
   useEffect(() => {
-    fetch('https://gis.vantaa.fi/rest/tyopaikat/v1/kaikki')
+    fetch('http://gis.vantaa.fi/rest/tyopaikat/v1/kaikki')
       .then(response => response.json())
       .then(json => setJobs([...json]));
   }, []);
+
 
   return (
     <Router>
@@ -45,7 +33,6 @@ function App() {
         </Switch>
       </div>
     </Router>
-
   );
 }
 

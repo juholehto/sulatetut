@@ -3,8 +3,8 @@ import React from 'react'
 function Weather() {
 
     return (
-        <p>Sääasematietoja></p>
-
+        <p>Sääasematietoja</p>
     )
 }
+
 export default Weather;

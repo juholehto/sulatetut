@@ -11,23 +11,17 @@ function Job({ job }) {
                     </td>
                     <td width="59%">
                         {job.tyotehtava}
-                    </td>
+                    </td> 
                     <td width="20%">
                         {job.osoite}
                     </td>
-                    <td width="20">
+                    <td width="20%">
                         <a href={job.linkki}>LISÄTIETOA</a>
                     </td>
                 </tr>
-            </tbody >
-        </table >
-
+            </tbody>
+        </table>
     )
-
 }
 
 export default Job;
-
-
-
-
