@@ -2,10 +2,15 @@ import React from 'react'
 import Job from './Job';
 
 
-function Jobs({ jobs }) {
+function Jobs({ jobs, onCompleted }) {
+
+    const handleCompleted = (job) => {
+        onCompleted(job);
+        console.log("käsittelensaamaanitietoa");
+    }
 
     const rows = () => jobs.map(job => {
-        return <Job job={job} key={job.id}/>
+        return <Job onCompleted={handleCompleted} job={job} key={job.id}/>
     })
 
     return (
