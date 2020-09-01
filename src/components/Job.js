@@ -1,20 +1,17 @@
 import React, { useState } from 'react'
 
 function Job({ job, onCompleted }) {
-
+    console.log(job.completed)
     const [checked] = useState(false);
-
     const handleCompleted = () => {
         onCompleted(job);
     }
-
     const getStyle = (complete) => ({
-        backround: '#f4f4f4',
-        textDecoration: complete ? 'line-trough' : 'none'
+        background: '#f4f4f4',
+        textDecoration: complete ? 'line-through' : 'none'
     })
-
     return (
-        <table> key={job.id} style= {getStyle(job.completed)}>
+        <table key={job.id} style={getStyle(job.completed)}>
             <tbody>
                 <tr>
                     <td width="1%">
