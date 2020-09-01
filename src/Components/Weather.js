@@ -22,8 +22,8 @@ function Weather() {
                         { stroke: "green", strokeWidth: 2 }
                 }}
                 x="experiment"
-                y="actual" 
-                />
+                y="actual"
+            />
 
         </VictoryChart>
     )
