@@ -4,7 +4,6 @@ function Search({ onFilter }) {
     const [addSearch, setSearch] = useState(initSearch);
     const handleFilter = (e) => {
         setSearch({ [e.target.name]: e.target.value });
-        console.log(e.target.value);
         onFilter(e.target.value)
     }
     return (

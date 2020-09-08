@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Header from './components/layout/Header';
-import Search from './components/layout/Search';
-import Jobs from './components/Jobs';
+import Header from './Components/layout/Header';
+import Search from './Components/layout/Search';
+import Jobs from './Components/Jobs';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Weather from './components/Weather'
+import Weather from './Components/Weather'
 
 function App() {
   const initJobs = []
