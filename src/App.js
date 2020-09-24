@@ -49,7 +49,7 @@ function App() {
 
   useEffect(() => {
 
-    fetch('http://gis.vantaa.fi/rest/tyopaikat/v1/kaikki')
+    fetch('https://gis.vantaa.fi/rest/tyopaikat/v1/kaikki')
 
       .then(response => response.json())
 
