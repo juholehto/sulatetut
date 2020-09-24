@@ -1,3 +1,9 @@
+käytettyjä node paketteja:
+react - router - dom 
+victory chart
+käyttö - npm install
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
